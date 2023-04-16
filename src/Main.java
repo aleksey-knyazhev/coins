@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -55,7 +58,8 @@ public class Main {
         можно оплатить этими монетами без сдачи */
         int[] coins = {1, 2, 3};
         Wallet wallet = new Wallet(coins);
-
+        System.out.println(wallet);
+        System.out.println("Minimum value without change: " + wallet.withoutChange());
     }
 
     public static void sort(int[] numbers) {
@@ -139,9 +143,39 @@ class AnagramDictionary {
 
 class Wallet {
     private final int[] coins;
+    private int total;
 
 
-    Wallet(int[] coins) {
-        this.coins = coins;
+    public Wallet(int[] coins) {
+        this.coins = Arrays.stream(coins).boxed().sorted(Collections.reverseOrder()).mapToInt(Integer::intValue).toArray();
+        this.total = Arrays.stream(coins).sum();
+    }
+
+    public int withoutChange() {
+        for (int i = 1; i <= total + 1; i++) {
+            //System.out.println("i: " + i);
+            if (check(i)) {
+                return i;
+            }
+        }
+        return 0;
+    }
+
+    private boolean check(int left) {
+        for (int coin : coins) {
+            if (coin > left) continue;
+            if (coin == left) return false;
+
+            left -= coin;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Wallet{" +
+                "coins=" + Arrays.toString(coins) +
+                ", total=" + total +
+                '}';
     }
 }
