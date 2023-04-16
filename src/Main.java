@@ -35,14 +35,14 @@ public class Main {
                 set.add(anagrams);
             }
         }
-        System.out.println(set);
+        System.out.println("Duplicates: " + set);
 
 
 
         /* Известно, что числовой массив состоит из пар одинаковых чисел, но есть одно число в единственном экземпляре,
         необходимо найти это число за один проход по массиву */
         int[] numbersWithUnique = {3, 4, 0, 0, 2, 1, 4, 3, 1};
-        System.out.println("Array with unique:" + Arrays.toString(numbersWithUnique));
+        System.out.println("Array with unique: " + Arrays.toString(numbersWithUnique));
         System.out.println("Unique: " + xor(numbersWithUnique));
 
 
