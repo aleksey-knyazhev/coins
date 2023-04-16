@@ -65,7 +65,6 @@ public class Main {
         }
         return unique;
     }
-
 }
 
 class AnagramDictionary {
@@ -73,9 +72,6 @@ class AnagramDictionary {
     private final String[] normalizedWords;
 
     public AnagramDictionary(String[] words) {
-        /*
-           Используйте слова для инициализации словаря
-         */
         this.words = words;
         this.normalizedWords = Arrays.stream(words).map(this::normalize).distinct().toArray(String[]::new);
     }
@@ -94,9 +90,6 @@ class AnagramDictionary {
     }
 
     public List<String> getAnagrams(String testWord) {
-        /*
-            Необходимо вернуть все доступные анаграммы для заданного слова
-         */
         ArrayList<String> result = new ArrayList<>();
         if (testWord == null || testWord.equals("")) {
             return result;
