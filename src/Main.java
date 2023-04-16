@@ -93,7 +93,6 @@ abstract class Caesar {
 
 class AnagramDictionary {
     private final String[] words;
-
     private final String[] normalizedWords;
 
     public AnagramDictionary(String[] words) {
@@ -144,7 +143,6 @@ class AnagramDictionary {
 class Wallet {
     private final int[] coins;
     private int total;
-
 
     public Wallet(int[] coins) {
         this.coins = Arrays.stream(coins).boxed().sorted(Collections.reverseOrder()).mapToInt(Integer::intValue).toArray();
