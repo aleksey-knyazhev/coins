@@ -6,6 +6,13 @@ import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
+        /* Реализовать шифрование методом Цезаря */
+        String message = "abc";
+        int offset = 1;
+        System.out.println("Source message: " + message + ", encrypted message: " + Caesar.encrypt(message, offset));
+
+
+
         /*  Дан некоторый массив из 0 и 1, к примеру int[] numbers = [0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0],
         необходимо отсортировать массив максимально быстрым способом */
         int[] numbersSort = {0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0};
@@ -31,6 +38,7 @@ public class Main {
         System.out.println(set);
 
 
+
         /* Известно, что числовой массив состоит из пар одинаковых чисел, но есть одно число в единственном экземпляре,
         необходимо найти это число за один проход по массиву */
         int[] numbersUnique = {3, 4, 0, 0, 2, 1, 4, 3, 1};
@@ -44,7 +52,8 @@ public class Main {
         то сдача будет 2, а если 5 - сдача будет 4. Без сдачи нельзя.
         Если у Вас есть 3 монеты номиналом 1, 2, 3, функция должна вернуть 7, т.к. все числа, что меньше,
         можно оплатить этими монетами без сдачи */
-
+        int[] coins = {1, 2, 3};
+        Wallet wallet = new Wallet(coins);
 
     }
 
@@ -67,8 +76,19 @@ public class Main {
     }
 }
 
+abstract class Caesar {
+    public static String encrypt(String message, int offset) {
+        StringBuilder result = new StringBuilder();
+        for (char character : message.toCharArray()) {
+            result.append((char) (character + offset));
+        }
+        return result.toString();
+    }
+}
+
 class AnagramDictionary {
     private final String[] words;
+
     private final String[] normalizedWords;
 
     public AnagramDictionary(String[] words) {
@@ -113,11 +133,14 @@ class AnagramDictionary {
                 ", normalizedWords=" + Arrays.toString(normalizedWords) +
                 '}';
     }
+
 }
 
 class Wallet {
-    private final int[] coins = {1, 2, 3};
+    private final int[] coins;
 
 
-
+    Wallet(int[] coins) {
+        this.coins = coins;
+    }
 }
