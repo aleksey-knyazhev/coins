@@ -41,8 +41,9 @@ public class Main {
 
         /* Известно, что числовой массив состоит из пар одинаковых чисел, но есть одно число в единственном экземпляре,
         необходимо найти это число за один проход по массиву */
-        int[] numbersUnique = {3, 4, 0, 0, 2, 1, 4, 3, 1};
-        System.out.println("Unique: " + xor(numbersUnique));
+        int[] numbersWithUnique = {3, 4, 0, 0, 2, 1, 4, 3, 1};
+        System.out.println("Array with unique:" + Arrays.toString(numbersWithUnique));
+        System.out.println("Unique: " + xor(numbersWithUnique));
 
 
 
